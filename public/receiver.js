@@ -44,13 +44,10 @@
     fileShare.progress_node.innerText = Math.trunc(
       (fileShare.transmitted / fileShare.metadata.total_buffer_size) * 100 + "%"
     );
-    console.log("Keldi");
     if (fileShare.transmitted == fileShare.metadata.total_buffer_size) {
       download(new Blob(fileShare.buffer), fileShare.metadata.filename);
       fileShare = {};
-      console.log("ifni icchi");
     } else {
-      console.log("else icchi");
 
       clientSocket.emit("fs-start", {
         uid: senderId,
